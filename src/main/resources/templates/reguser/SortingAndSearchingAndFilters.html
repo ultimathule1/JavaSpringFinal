@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+  <form>
+    <input type="button" value="Вернуться к списку пользователей" onclick="history.back()">
+  </form>
+  <h3>Поиск пользователя</h3>
+  <form method="post" th:action="@{/admin/person/sorting_and_searсhing_and_filters}">
+    <label for="SortingAndSearchingAndFiltersOptions">Выберите параметр:  </label>
+    <select name="SortingAndSearchingAndFiltersOptions" id="SortingAndSearchingAndFiltersOptions">
+      <option value="email">По Email адресу</option>
+      <option value="phone_number">По номеру телефона</option>
+      <option value="last_name_start">По началу символов в фамилии</option>
+    </select>
+    <br>
+    <br>
+    <label for="value">Введите значение: </label>
+    <input type="text" name="value" id="value">
+    <br>
+    <br>
+    <button type="submit">Поиск</button>
+  </form>
+  <h3>Результат: </h3>
+  <div th:each="element : ${person}">
+    <p th:text="'Логин: ' + ${person.getLogin()}"/>
+    <p th:text="'Пароль: ' + ${person.getPassword()}"/>
+    <p th:text="'Роль: ' + ${person.getRole()}"/>
+    <p th:text="'Фамилия: ' + ${person.getLastname()}"/>
+    <p th:text="'Имя: ' + ${person.getFirstname()}"/>
+    <p th:text="'Отчество: ' + ${person.getPatronymic()}"/>
+    <p th:text="'Дата рождения: ' + ${person.getBirthday()}"/>
+    <p th:text="'Email: ' + ${person.getEmail()}"/>
+    <p th:text="'Номер телефона: ' + ${person.getPhoneNumber()}"/>
+    <hr>
+  </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователи</title>
+</head>
+<body>
+    <form>
+        <input type="button" value="Вернуться в личный кабинет" onclick="history.back()">
+    </form>
+    <br>
+    <br>
+    <h3>Список зарегистрированных пользователей: </h3>
+    <br>
+    <a href="/admin/person/sorting_and_searching_and_filters">Поиск, сортировка, фильтрация</a>
+    <br>
+    <br>
+    <div th:each="element : ${person}">
+        <a th:href="@{/admin/person/info/{id}(id=${element.getId()})}" th:text="${element.getLastname()}"></a>
+    </div>
+</body>
+</html>
