@@ -11,10 +11,45 @@
 <!--            <input type="search" id="search" name="search" th:value="*{value_search}">-->
 <!--        </fieldset>-->
 <!--    </form>-->
+    <a href="/admin">Вернуться в личный кабинет</a>
 
-    <h2>История заказов клиентов</h2>
-
-
+    <h2>История заказов</h2>
+    <form th:method="POST" th:action="@{/admin/order/search}">
+        <fieldset>
+            <Label for="search">Поиск по последним четырем символам номера заказа</Label>
+            <input type="search" name="search" th:value="*{value_search}" id="search" minlength="4" maxlength="4">
+            <br>
+            <input type="submit" value="Найти">
+        </fieldset>
+    </form>
+    <table  th:each="order: ${search_orders}">
+        <h3>Результат</h3>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Номер заказа</th>
+            <th>Товар</th>
+            <th>Цена</th>
+            <th>Количество</th>
+            <th>Покупатель</th>
+            <th>Дата заказа</th>
+            <th>Статус заказа</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><a th:href="@{/admin/order/edit/{id}(id=${order.getId()})}" th:text="${order.getId()}"></a></td>
+            <td th:text="${order.getNumber()}"></td>
+            <td th:text="${order.getProduct().getTitle()}"></td>
+            <td th:text="${order.getPrice()}"></td>
+            <td th:text="${order.getCount()}"></td>
+            <td th:text="'id: ' + ${order.getPerson().getId()} + '; логин: ' + ${order.getPerson().getLogin()}"></td>
+            <td th:text="${order.getDateTime()}"></td>
+            <td th:text="${order.getStatus()}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <h3>Все заказы</h3>
     <table>
         <thead>
             <tr>

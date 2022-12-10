@@ -237,6 +237,15 @@ public class AdminController {
         return "orders/order";
     }
 
+    //Поиск заказа по последним символам
+    @PostMapping("/order/search")
+    public String orderSearch(@RequestParam("search") String search, Model model) {
+        model.addAttribute("search_orders", orderRepository.findByNumberContainingIgnoreCase(search));
+        model.addAttribute("value_search", search);
+        model.addAttribute("orders", orderService.getAllOrder());
+        return "orders/order";
+    }
+
     //Отдельный просмотр заказа, а также смена статуса
     @GetMapping("/order/edit/{id}")
     public String editOrder(@PathVariable("id") int id, Model model) {
@@ -247,11 +256,6 @@ public class AdminController {
     //Получение объекта заказа с формы с обновленным статус сохраняем в БД
     @PostMapping("/order/edit/{id}")
     public String editOrder(@ModelAttribute("editOrder") Order order, @PathVariable("id") int id) {
-        System.out.println(order.getId());
-        System.out.println(order.getCount());
-        System.out.println(order.getPerson());
-        System.out.println(order.getPrice());
-        System.out.println(order.getStatus());
         orderService.updateOrder(id, order);
         return "redirect:/admin/order";
     }

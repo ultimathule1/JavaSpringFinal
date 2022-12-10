@@ -14,13 +14,17 @@
         <input type="text"  th:field="*{login}" placeholder="Введите пароль" name="username" id="login">
         <div style="color: red" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></div>
         <br>
-        <label for="password">Введите пароль: </label>
-        <input type="password" th:field="*{password}" placeholder="Введите пароль" name="password" id="password">
-        <div style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+        <label hidden for="password">Введите пароль: </label>
+        <input hidden type="password" th:field="*{password}" placeholder="Введите пароль" name="password" id="password">
+        <div hidden style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
         <br>
-        <label for="role">Введите роль: </label>
-        <input type="text" th:field="*{role}" placeholder="Введите роль" name="role" id="role">
-        <div style="color: red" th:if="${#fields.hasErrors('role')}" th:errors="*{role}"></div>
+<!--        <label for="role">Введите роль: </label>-->
+<!--        <input type="text" th:field="*{role}" placeholder="Введите роль" name="role" id="role">-->
+<!--        <div style="color: red" th:if="${#fields.hasErrors('role')}" th:errors="*{role}"></div>-->
+        <select name="status" id="status" th:field="*{role}">
+            <option th:value="ROLE_USER" th:text="ROLE_USER"></option>
+            <option th:value="ROLE_ADMIN" th:text="ROLE_ADMIN"></option>
+        </select>
         <br>
         <label for="last_name">Введите фамилию: </label>
         <input type="text" th:field="*{lastname}" id="last_name">

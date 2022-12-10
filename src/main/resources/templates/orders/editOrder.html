@@ -13,23 +13,17 @@
     <p th:text="'Получать: id:' + ${editOrder.getId()} + '; login: ' + ${editOrder.getPerson().getLogin()} + '; ФИО: ' + ${editOrder.getPerson().getLastname()} + ' ' + ${editOrder.getPerson().getFirstname()} + ' ' + ${editOrder.getPerson().getPatronymic()}"></p>
     <p th:text="'Текущий статус заказа: ' + ${editOrder.getStatus()}"></p>
     <form th:method="POST" th:action="@{/admin/order/edit/{id}(id=${editOrder.getId()})}" th:object="${editOrder}">
-        <label hidden for="number"></label>
-        <textarea hidden th:field="*{number}" placeholder="Номер заказа" id="number"></textarea>
-        <label hidden for="price"></label>
-        <textarea hidden th:field="*{price}" placeholder="Цена" id="price" ></textarea>
-        <label hidden for="person"></label>
-        <textarea hidden th:field="*{person}" placeholder="Покупатель" id="person"></textarea>
-        <label hidden for="product"></label>
-        <textarea hidden th:field="*{product}" placeholder="Наименование продукта" id="product" th:text="${editOrder.getProduct()}"></textarea>
-        <label hidden for="dateTime"></label>
-        <textarea hidden th:field="*{dateTime}" placeholder="Время заказа" id="dateTime"></textarea>
-        <label hidden for="count"></label>
-        <textarea hidden th:field="*{count}" placeholder="Количество" id="count"></textarea>
-        <label for="status">Изменить статус заказа:</label>
+        <textarea hidden th:field="*{number}" id="number"></textarea>
+        <textarea hidden th:field="*{price}" id="price" ></textarea>
+        <textarea hidden th:field="*{person}" id="person"></textarea>
+        <textarea hidden th:field="*{product}" id="product" th:text="${editOrder.getProduct()}"></textarea>
+        <textarea hidden th:field="*{dateTime}"id="dateTime"></textarea>
+        <textarea hidden th:field="*{count}" id="count"></textarea>
         <select name="status" id="status">
             <option th:each="state:${T(com.example.springsecurityapplication.enumm.Status).values()}" th:value="${state}" th:text="${state}"></option>
         </select>
         <input type="submit" value="Редактировать">
     </form>
+    <a href="orders/order">Список заказов</a>
 </body>
 </html>
