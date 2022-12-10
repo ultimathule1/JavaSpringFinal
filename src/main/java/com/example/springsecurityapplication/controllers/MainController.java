@@ -35,11 +35,6 @@ public class MainController {
 
     @PostMapping("/search")
     public String productSearch(@RequestParam("search") String search, @RequestParam("ot") String ot, @RequestParam("do") String Do, @RequestParam(value = "price", required = false, defaultValue = "") String price, @RequestParam(value = "category", required = false, defaultValue = "") String category, Model model){
-        System.out.println(search);
-        System.out.println(ot);
-        System.out.println(Do);
-        System.out.println(price);
-        System.out.println(category);
         // Если диапазон цен от и до не пустой
         if(!ot.isEmpty() & !Do.isEmpty()) {
             // Если сортировка по цене выбрана

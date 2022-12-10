@@ -116,13 +116,6 @@ public class UserController {
         return "redirect:/cart";
     }
 
-//    @PostMapping("/search")
-//    public String productSearch(@RequestParam("search") String search, @RequestParam("ot") String ot, @RequestParam("do") String Do, @RequestParam(value = "price", required = false, defaultValue = "") String price, @RequestParam(value = "category", required = false, defaultValue = "") String category, Model model){
-//        System.out.println("lf");
-//        return "redirect:/product";
-//    }
-
-
     //----ORDER----\\
 
     @GetMapping("/order/create")

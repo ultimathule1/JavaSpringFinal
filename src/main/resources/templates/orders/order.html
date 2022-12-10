@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Заказы</title>
+</head>
+<body>
+<!--    <form th:method="POST" action="@{/admin/order/search}">-->
+<!--        <fieldset>-->
+<!--            <label for="search">Поиск по последним 4 символам номера в заказе</label>-->
+<!--            <input type="search" id="search" name="search" th:value="*{value_search}">-->
+<!--        </fieldset>-->
+<!--    </form>-->
+
+    <h2>История заказов клиентов</h2>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Номер заказа</th>
+                <th>Товар</th>
+                <th>Цена</th>
+                <th>Количество</th>
+                <th>Покупатель</th>
+                <th>Дата заказа</th>
+                <th>Статус заказа</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="order : ${orders}">
+                <td><a th:href="@{/admin/order/edit/{id}(id=${order.getId()})}" th:text="${order.getId()}"></a></td>
+                <td th:text="${order.getNumber()}"></td>
+                <td th:text="${order.getProduct().getTitle()}"></td>
+                <td th:text="${order.getPrice()}"></td>
+                <td th:text="${order.getCount()}"></td>
+                <td th:text="'id: ' + ${order.getPerson().getId()} + '; логин: ' + ${order.getPerson().getLogin()}"></td>
+                <td th:text="${order.getDateTime()}"></td>
+                <td th:text="${order.getStatus()}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

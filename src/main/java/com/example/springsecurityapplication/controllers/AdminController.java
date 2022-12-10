@@ -1,10 +1,13 @@
 package com.example.springsecurityapplication.controllers;
 
 import com.example.springsecurityapplication.models.Image;
+import com.example.springsecurityapplication.models.Order;
 import com.example.springsecurityapplication.models.Person;
 import com.example.springsecurityapplication.models.Product;
 import com.example.springsecurityapplication.repositories.CategoryRepository;
+import com.example.springsecurityapplication.repositories.OrderRepository;
 import com.example.springsecurityapplication.security.PersonDetails;
+import com.example.springsecurityapplication.services.OrderService;
 import com.example.springsecurityapplication.services.PersonService;
 import com.example.springsecurityapplication.services.ProductService;
 import com.example.springsecurityapplication.util.ProductValidator;
@@ -38,12 +41,18 @@ public class AdminController {
 
     private final PersonService personService;
 
+    private final OrderRepository orderRepository;
+
+    private final OrderService orderService;
+
     @Autowired
-    public AdminController(ProductValidator productValidator, ProductService productService, CategoryRepository categoryRepository, PersonService personService) {
+    public AdminController(ProductValidator productValidator, ProductService productService, CategoryRepository categoryRepository, PersonService personService, OrderRepository orderRepository, OrderService orderService) {
         this.productValidator = productValidator;
         this.productService = productService;
         this.categoryRepository = categoryRepository;
         this.personService = personService;
+        this.orderRepository = orderRepository;
+        this.orderService = orderService;
     }
 
     //@PreAuthorize("hasRole('ROLE_ADMIN') and hasRole('')")
@@ -219,7 +228,36 @@ public class AdminController {
         return "redirect:/admin";
     }
 
+    //------ORDERS------\\
+
+    //Страница со всеми заказами
+    @GetMapping("/order")
+    public String order(Model model) {
+        model.addAttribute("orders", orderService.getAllOrder());
+        return "orders/order";
+    }
+
+    //Отдельный просмотр заказа, а также смена статуса
+    @GetMapping("/order/edit/{id}")
+    public String editOrder(@PathVariable("id") int id, Model model) {
+        model.addAttribute("editOrder", orderService.getOrderById(id));
+        return "orders/editOrder";
+    }
+
+    //Получение объекта заказа с формы с обновленным статус сохраняем в БД
+    @PostMapping("/order/edit/{id}")
+    public String editOrder(@ModelAttribute("editOrder") Order order, @PathVariable("id") int id) {
+        System.out.println(order.getId());
+        System.out.println(order.getCount());
+        System.out.println(order.getPerson());
+        System.out.println(order.getPrice());
+        System.out.println(order.getStatus());
+        orderService.updateOrder(id, order);
+        return "redirect:/admin/order";
+    }
+
     //------REGISTERED USERS------\\
+
     //Возвращает страницу с выводом пользователей и кладет объект пользователя в модель
     @GetMapping("/person")
     public String person(Model model) {
