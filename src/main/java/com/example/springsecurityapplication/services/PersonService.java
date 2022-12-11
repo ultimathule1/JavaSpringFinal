@@ -49,12 +49,6 @@ public class PersonService {
         return optionalPerson.orElse(null);
     }
 
-    //Обновление пароля пользователя
-//    @Transactional
-//    public void updatePassword(int id, String password) {
-//        personRepository.updatePersonById(id, passwordEncoder.encode(password));
-//    }
-
     //Обновление данных пользователя
     @Transactional
     public void updatePerson(int id, Person person) {

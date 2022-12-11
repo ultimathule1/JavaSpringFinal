@@ -17,7 +17,7 @@
     <p th:text="'Дата рождения: ' + ${person.getBirthday()}"/>
     <p th:text="'Email: ' + ${person.getEmail()}"/>
     <p th:text="'Номер телефона: ' + ${person.getPhoneNumber()}"/>
-    <a th:href="@{/admin/person/edit/{id}(id=${person.getId()})}">Редактировать пользователя</a>
+    <a href="/admin/person">Вернуться к списку</a>
     <a th:href="@{/admin/person/delete/{id}(id=${person.getId()})}">Удалить пользователя</a>
 </body>
 </html>

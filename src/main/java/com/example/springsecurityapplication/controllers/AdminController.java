@@ -6,6 +6,7 @@ import com.example.springsecurityapplication.models.Person;
 import com.example.springsecurityapplication.models.Product;
 import com.example.springsecurityapplication.repositories.CategoryRepository;
 import com.example.springsecurityapplication.repositories.OrderRepository;
+import com.example.springsecurityapplication.repositories.PersonRepository;
 import com.example.springsecurityapplication.security.PersonDetails;
 import com.example.springsecurityapplication.services.OrderService;
 import com.example.springsecurityapplication.services.PersonService;
@@ -44,15 +45,18 @@ public class AdminController {
     private final OrderRepository orderRepository;
 
     private final OrderService orderService;
+    private final PersonRepository personRepository;
 
     @Autowired
-    public AdminController(ProductValidator productValidator, ProductService productService, CategoryRepository categoryRepository, PersonService personService, OrderRepository orderRepository, OrderService orderService) {
+    public AdminController(ProductValidator productValidator, ProductService productService, CategoryRepository categoryRepository, PersonService personService, OrderRepository orderRepository, OrderService orderService,
+                           PersonRepository personRepository) {
         this.productValidator = productValidator;
         this.productService = productService;
         this.categoryRepository = categoryRepository;
         this.personService = personService;
         this.orderRepository = orderRepository;
         this.orderService = orderService;
+        this.personRepository = personRepository;
     }
 
     //@PreAuthorize("hasRole('ROLE_ADMIN') and hasRole('')")
@@ -260,13 +264,29 @@ public class AdminController {
         return "redirect:/admin/order";
     }
 
-    //------REGISTERED USERS------\\
+    //------REGISTERED USERS(PERSON)------\\
 
     //Возвращает страницу с выводом пользователей и кладет объект пользователя в модель
+//    @GetMapping("/person")
+//    public String person(Model model) {
+//        model.addAttribute("person", personService.getAllPerson());
+//        return "reguser/person";
+//    }
+
+    //Возвращает страницу с выводом пользователей, а также с возможностью изменения роли
     @GetMapping("/person")
-    public String person(Model model) {
-        model.addAttribute("person", personService.getAllPerson());
+    public String person(Model model){
+        model.addAttribute("persons", personService.getAllPerson());
         return "reguser/person";
+    }
+
+    //Принимает айди пользователя с url, а также роль с формы и сохраняет
+    @PostMapping("/person/{id}")
+    public String personInfo(@PathVariable("id") int id, @RequestParam("role") String role) {
+        Person personRole = personService.getPersonById(id);
+        personRole.setRole(role);
+        personRepository.save(personRole);
+        return "redirect:/admin/person";
     }
 
     //Страница с подробной информацией о пользователе
@@ -276,22 +296,23 @@ public class AdminController {
         return "reguser/personInfo";
     }
 
-    //Страница с формой редактирования пользователя, а в модель помещается объект редактируемого пользователя
-    @GetMapping("/person/edit/{id}")
-    public String editPerson(@PathVariable("id")int id, Model model){
-        model.addAttribute("editPerson", personService.getPersonById(id));
-        return "reguser/editPerson";
-    }
-
-    //Принимает объект с формы и обновляет пользователя
-    @PostMapping("/person/edit/{id}")
-    public String editPerson(@ModelAttribute("editPerson") @Valid Person person, BindingResult bindingResult, @PathVariable("id") int id){
-        if(bindingResult.hasErrors()){
-            return "reguser/editPerson";
-        }
-        personService.updatePerson(id, person);
-        return "redirect:/admin/person";
-    }
+//    //Страница с формой редактирования пользователя, а в модель помещается объект редактируемого пользователя
+//    @GetMapping("/person/edit/{id}")
+//    public String editPerson(@PathVariable("id")int id, Model model){
+//        model.addAttribute("editPerson", personService.getPersonById(id));
+//        return "reguser/editPerson";
+//    }
+//
+//    //Принимает объект с формы и обновляет пользователя
+//    @PostMapping("/person/edit/{id}")
+//    public String editPerson(@ModelAttribute("editPerson") @Valid Person person, BindingResult bindingResult, @PathVariable("id") int id){
+//        if(bindingResult.hasErrors()){
+//            System.out.println("Произошла ошибочка");
+//            return "reguser/editPerson";
+//        }
+//        personService.updatePerson(id, person);
+//        return "redirect:/admin/person";
+//    }
 
     //Удаление пользователя по id
     @GetMapping("/person/delete/{id}")
@@ -301,19 +322,19 @@ public class AdminController {
     }
 
     //При нажатии на кнопку будет происходить поиск, сортировка и отображение шаблона
-    @GetMapping("/person/sorting_and_searching_and_filters")
-    public String sorting_and_searching_and_filters() {
-        return "/reguser/SortingAndSearchingAndFilters";
-    }
-
-    @PostMapping("/person/sorting_and_searching_and_filters")
-    public String sorting_and_searching_and_filters(@RequestParam("SortingAndSearchingAndFiltersOptions")
-                                                    String sortingAndSearchingAndFiltersOptions, @RequestParam("value") String value, Model model){
-        switch (sortingAndSearchingAndFiltersOptions) {
-            case "last_name_start" -> model.addAttribute("person", personService.getPersonLastNameStartingWith(value));
-            case "email" -> model.addAttribute("person", personService.getPersonEmail(value));
-            case "phone_number" -> model.addAttribute("person", personService.getPersonPhoneNumber(value));
-        }
-        return "reguser/SortingAndSearchingAndFilters";
-    }
+//    @GetMapping("/person/sorting_and_searching_and_filters")
+//    public String sorting_and_searching_and_filters() {
+//        return "/reguser/SortingAndSearchingAndFilters";
+//    }
+//
+//    @PostMapping("/person/sorting_and_searching_and_filters")
+//    public String sorting_and_searching_and_filters(@RequestParam("SortingAndSearchingAndFiltersOptions")
+//                                                    String sortingAndSearchingAndFiltersOptions, @RequestParam("value") String value, Model model){
+//        switch (sortingAndSearchingAndFiltersOptions) {
+//            case "last_name_start" -> model.addAttribute("person", personService.getPersonLastNameStartingWith(value));
+//            case "email" -> model.addAttribute("person", personService.getPersonEmail(value));
+//            case "phone_number" -> model.addAttribute("person", personService.getPersonPhoneNumber(value));
+//        }
+//        return "reguser/SortingAndSearchingAndFilters";
+//    }
 }

@@ -1,22 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Пользователи</title>
 </head>
 <body>
-    <form>
-        <input type="button" value="Вернуться в личный кабинет" onclick="history.back()">
-    </form>
-    <br>
-    <br>
-    <h3>Список зарегистрированных пользователей: </h3>
-    <br>
-    <a href="/admin/person/sorting_and_searching_and_filters">Поиск, сортировка, фильтрация</a>
-    <br>
-    <br>
-    <div th:each="element : ${person}">
-        <a th:href="@{/admin/person/info/{id}(id=${element.getId()})}" th:text="${element.getLastname()}"></a>
+    <a href="/admin">Вернуться</a>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>логин</th>
+                    <th>ФИО</th>
+                    <th>роль</th>
+                    <th>изменить роль</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <form th:each="person : ${persons}" th:method="POST" th:action="@{/admin/person/{id}(id=${person.getId()})}">
+                    <tr>
+                        <td><a th:href="@{/admin/person/info/{id}(id=${person.getId()})}" th:text="${person.getId()}"></a></td>
+                        <td th:text="${person.getLogin()}"></td>
+                        <td th:text="${person.getLastname()} + ' ' + ${person.getFirstname()} + ' ' + ${person.getPatronymic()}"></td>
+                        <td th:text="${person.getRole()}"></td>
+                        <td>
+                            <select name="role" id="role">
+                                <option th:value="ROLE_USER" th:text="ROLE_USER"></option>
+                                <option th:value="ROLE_ADMIN" th:text="ROLE_ADMIN"></option>
+                            </select>
+                        </td>
+                        <td><button type="submit">Изменить</button></td>
+                        <td><a type="submit" th:href="@{/admin/person/delete/{id}(id=${person.getId()})}">Удалить</a></td>
+                    </tr>
+                </form>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

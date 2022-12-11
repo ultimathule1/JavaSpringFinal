@@ -63,14 +63,6 @@ public class Person {
     @JoinTable(name = "product_cart", joinColumns = @JoinColumn(name = "person_id"),inverseJoinColumns = @JoinColumn(name = "product_id"))
     private List<Product> products;
 
-//    private LocalDateTime dateTimeOfCreated;
-//
-//    // Будет заполняться дата и время при создании объекта класса
-//    @PrePersist
-//    private void init(){
-//        dateTimeOfCreated = LocalDateTime.now();
-//    }
-
     @OneToMany(mappedBy = "person")
     private List<Order> orderList;
 
@@ -161,6 +153,4 @@ public class Person {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
-
 }
