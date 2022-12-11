@@ -15,5 +15,7 @@ public class Config implements WebMvcConfigurer {
         // ** - какой либо текст
         registry.addResourceHandler("/img/**")
                 .addResourceLocations("file://" + uploadPath + "/");
+        registry.addResourceHandler("/static/**")
+                .addResourceLocations("classpath:/static/");
     }
 }

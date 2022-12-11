@@ -1,0 +1,84 @@
+body {
+    /* background-image: url("../img/back_for_login.jpg"); */
+    background-color: #6dcae3;
+    margin: 0;
+    padding: 0;
+    /* width: 100%;
+    height: 100%;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+a {
+    text-decoration: none;
+}
+
+.content {
+    margin: 50px auto 0;
+    max-width: 400px;
+    max-height: 720px;
+    color: #1c9abd;
+}
+
+.form-full {
+    border-radius: 10px;
+    font-size: 24px;
+    background-color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+
+form label {
+    margin-bottom: 10px;
+}
+
+h3 {
+    margin-top: 10px;
+    font-size: 32px;
+    color: #16667c;
+}
+
+form > input {
+    padding: 10px;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form input[type="submit"] {
+    border-radius: 10px;
+    border: 0;
+    font-size: 18px;
+    padding: 10px 25px;
+    background-color: rgb(56, 59, 237);
+    color: white;
+    cursor: pointer;
+}
+
+.form-full a {
+    color:rgb(56, 59, 237);
+    font-size: 18px;
+}
+
+.links a {
+    text-decoration: none;
+    color:rgb(56, 59, 237);
+    padding: 0 10px;
+    font-size: 18px;
+}
+
+.links p {
+    color: rgb(231, 246, 249);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.links > a {
+    text-align: center;
+}
+
+.registration-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
