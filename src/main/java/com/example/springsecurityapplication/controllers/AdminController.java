@@ -98,7 +98,7 @@ public class AdminController {
             return "product/addProduct";
         }
         // Проверка на пустоту файла
-        if (file_one != null) {
+        if (!file_one.isEmpty()) {
             // Дирректория по сохранению файла
             File uploadDir = new File(uploadPath);
             // Если данной дирректории по пути не сущетсвует
@@ -120,7 +120,7 @@ public class AdminController {
         }
 
         // Проверка на пустоту файла
-        if (file_two != null) {
+        if (!file_two.isEmpty()) {
             // Дирректория по сохранению файла
             File uploadDir = new File(uploadPath);
             // Если данной дирректории по пути не сущетсвует
@@ -142,7 +142,7 @@ public class AdminController {
         }
 
         // Проверка на пустоту файла
-        if (file_three != null) {
+        if (!file_three.isEmpty()) {
             // Дирректория по сохранению файла
             File uploadDir = new File(uploadPath);
             // Если данной дирректории по пути не сущетсвует
@@ -164,7 +164,7 @@ public class AdminController {
         }
 
         // Проверка на пустоту файла
-        if (file_four != null) {
+        if (!file_four.isEmpty()) {
             // Дирректория по сохранению файла
             File uploadDir = new File(uploadPath);
             // Если данной дирректории по пути не сущетсвует
@@ -186,7 +186,7 @@ public class AdminController {
         }
 
         // Проверка на пустоту файла
-        if (file_five != null) {
+        if (!file_five.isEmpty()) {
             // Дирректория по сохранению файла
             File uploadDir = new File(uploadPath);
             // Если данной дирректории по пути не сущетсвует

@@ -1,0 +1,225 @@
+.nav-inputs {
+    background-color: #212529;
+    border: 0;
+    color:darkorange;
+    height: auto;
+    width: auto;
+}
+
+.nav-inputs:hover {
+    color:rgb(213, 213, 213);
+}
+
+.catalog-title {
+   margin: 105px 0 70px;
+   display: flex;
+   justify-content: center;
+}
+
+.catalog-title h2 {
+   width: 300px;
+   padding: 13px 0;
+   text-align: center;
+   border-top: 2px dotted rgb(197, 109, 2);
+   border-bottom: 2px dotted rgb(197, 109, 2);
+}
+
+fieldset input[type="text"], input[type="search"] {
+   padding: 2px 5px;
+}
+
+.category {
+   margin-top: 5px;
+   margin-bottom: 0;
+   padding-bottom: 0;
+}
+
+fieldset input[type="submit"] {
+   padding: 5px 10px;
+   background-color: #212529;
+   color: white;
+   transition: all 0.3s ease-out;
+}
+
+fieldset input[type="submit"]:hover {
+    background-color: darkorange;
+    color: black;
+    border: 2px solid darkorange;
+}
+
+.products-search-block {
+   display: grid;
+   grid-template-columns: repeat(6, 1fr);
+   grid-template-rows: 1fr;
+   grid-column-gap: 5px;
+   grid-row-gap: 5px;
+   max-width: 1600px;
+   margin-bottom: 40px;
+}
+
+.search-parameters { grid-area: 1 / 1 / 2 / 2; }
+.search-result-and-products{ grid-area: 1 / 2 / 2 / 7; }
+
+.products {
+   display: grid;
+   justify-content: center;
+   align-items: center;
+   grid-template-columns: repeat(auto-fill, minmax(300px, 350px));
+   grid-gap: 50px 160px;
+}
+
+.products a {
+   margin-top: 5px;
+   text-decoration: none;
+   color: rgb(90, 123, 220);
+   font-size: 17px;
+}
+
+.add-to-cart-btn {
+    max-width: 180px;
+   padding: 5px 10px;
+   border-radius: 10px;
+   color:white !important;
+   background-color: #2b3136;
+   transition: all 0.3s ease-in-out;
+}
+
+.add-to-cart-btn:hover {
+    background-color: rgb(255, 168, 62);
+}
+
+.available-title {
+   margin-bottom: 50px;
+}
+
+.product {
+   border: 1px solid var(--main-green);
+   border-radius: 35px;
+   padding: 10px 30px 30px;
+   transition: 0.4s all ease-out;
+   display: flex;
+   flex-direction: column;
+}
+
+.product:hover {
+   box-shadow: 0px 0px 10px 0px #616161;
+}
+
+.img-product {
+   position: relative;
+   display: flex;
+   justify-content: center;
+   margin-top: -15px;
+   overflow: hidden;
+   z-index: 1;
+}
+
+.product img {
+   width: 240px;
+   margin: 0 auto;
+}
+
+.footer {
+   width: 100%;
+   border-top: 1px solid gray;
+}
+
+.footer-wrapper {
+   height: 300px;
+   width: 100%;
+   color: rgb(213, 213, 213);
+   background-color: #212529;
+   padding-top: 2em;
+}
+
+.contacts, .footer__fake-site{
+   max-width: 1400px;
+   min-width: 400px;
+   margin: 0 auto;
+}
+
+.contacts {
+   display: flex;
+   justify-content: space-between;
+   font-size: 1.5em;
+   padding-bottom: 1.25em;
+}
+
+.contacts a:hover {
+    text-decoration: none;
+    color: darkorange;
+}
+
+.footer__left {
+   display: flex;
+   flex-direction: column;
+   max-width: 600px;
+   min-width: 280px;
+}
+
+.footer__left > a {
+   line-height: 2;
+   display: block;
+}
+
+.footer__left > a:hover {
+   text-decoration: underline;
+}
+
+.footer__left-phone::before {
+   content: "";
+   background-image: url("../img/footer_icon1.png");
+   background-size: cover;
+   display: inline-block;
+   width: 35px;
+   height: 35px;
+   margin-right: 10px;
+   position: relative;
+   top: 7px;
+}
+
+.footer__left-mail::before {
+   content: "";
+   background-image: url("../img/icon2.png");
+   background-size: cover;
+   display: inline-block;
+   width: 35px;
+   height: 35px;
+   margin-right: 10px;
+   position: relative;
+   top: 7px;
+}
+
+.footer__left-vk::before {
+   content: "";
+   background-image: url("../img/icon4.png");
+   background-size: cover;
+   display: inline-block;
+   width: 35px;
+   height: 35px;
+   margin-right: 10px;
+   position: relative;
+   top: 7px;
+}
+
+.footer__right {
+   max-width: 600px;
+   line-height: 1.7;
+}
+
+.footer__right-location:before {
+   content: "";
+   background-image: url("../img/icon6.png");
+   background-size: cover;
+   display: inline-block;
+   width: 35px;
+   height: 35px;
+   margin-right: 10px;
+   position: relative;
+   top: 10px;
+}
+
+.contacts a {
+   text-decoration: none;
+   color: inherit;
+}
