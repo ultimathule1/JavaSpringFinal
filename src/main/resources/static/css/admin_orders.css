@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
+input, textarea, p {
+    background-color: #F7F8F9;
+    padding: 10px;
+    border:none;
+}
+
+.main-admin {
+    display: flex;
+    align-items: center;
+}
+
+.nav-inputs {
+    background-color: #212529;
+    border: 0;
+    color:darkorange;
+    height: auto;
+    width: auto;
+}
+
+.nav-inputs:hover {
+    color:rgb(213, 213, 213);
+}
+
+.main-wrapper {
+    min-height: 960px;
+    width: 100%;
+    background-color: #F7F8F9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-block {
+    margin: 80px 0;
+    padding: 0 20px;
+    width: 1600px;
+    min-width: 400px;
+    min-height: 800px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+td {
+    padding: 0 10px;
+}
+
