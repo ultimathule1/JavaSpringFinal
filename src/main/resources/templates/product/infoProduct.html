@@ -36,27 +36,35 @@
         </div>
     </nav>
     <div class="wrapper">
-        <a href="/product" class="back-btn">Вернуться к продуктам</a>
         <div class="main-block">
+            <a href="/product" class="back-btn">Вернуться к продуктам</a>
             <h3 class="title" th:text="${product.getTitle()}"></h3>
-            <div class="flex-container">
-                <div class="flex-container" th:each="img : ${product.getImageList()}">
-                    <img th:src="'/img/' + ${img.getFileName()}">
+            <div class="main-content">
+                <div class="container-img">
+                    <div class="flex-container">
+                        <div class="flex-container" th:each="img : ${product.getImageList()}">
+                            <img th:src="'/img/' + ${img.getFileName()}">
+                        </div>
+                    </div>
+                </div>
+                <div class="info-product">
+                    <p class="cost-block" th:text="'Цена: ' + ${product.getPrice()}"></p>
+                    <p th:text="'Описание: ' + ${product.getDescription()}"></p>
+                    <!-- <p th:text="'Склад: ' + ${product.getWarehouse()}"></p> -->
+                    <p th:text="'Продавец: ' + ${product.getSeller()}"></p>
+                    <p th:text="'Категория: ' + ${product.getCategory().getName()}"></p>
                 </div>
             </div>
-            <p th:text="'Цена: ' + ${product.getPrice()}"></p>
-            <p class="description" th:text="'Описание: ' + ${product.getDescription()}"></p>
-            <!-- <p th:text="'Склад: ' + ${product.getWarehouse()}"></p> -->
-            <p th:text="'Продавец: ' + ${product.getSeller()}"></p>
-            <p th:text="'Категория: ' + ${product.getCategory().getName()}"></p>
         </div>
     </div>
-    <div class="container text-center w-100 footer">
-        <div class="row">
-            <div class="col-4">
-                <h3>SNEZHOK</h3>
+    <div class="my-footer">
+        <div class="container text-center w-100 footer">
+            <div class="row">
+                <div class="col-4">
+                    <h3>SNEZHOK</h3>
+                </div>
+                <div class="col-8">Copyright © интернет-магазин auction.ru 2019-2022</div>
             </div>
-            <div class="col-8">Организация для экслюзивных вещей</div>
         </div>
     </div>
     <script th:src="@{/scripts/bootstrap.bundle.min.js}"></script>

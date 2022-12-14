@@ -64,7 +64,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-3 product" style="gap: 20;" th:each="product : ${products}">
-                        <img th:src="'/img/' + ${product.imageList[0].getFileName()}">
+                        <div class="product-image-block">
+                            <img th:src="'/img/' + ${product.imageList[0].getFileName()}">
+                        </div>
                         <a th:href="@{/product/info/{id}(id=${product.getId()})}" th:text="${product.getTitle()}" id="title"></a>
                         <p th:text="'Цена: ' + ${product.getPrice()}"></p>
                         <a class="add-to-cart-btn" th:href="@{/admin/product/edit/{id}(id=${product.getId()})}">Редактировать товар</a>

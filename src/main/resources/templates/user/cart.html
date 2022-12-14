@@ -66,7 +66,9 @@
                                 <p class="price-block" th:text="'Цена: ' + ${product.getPrice()}"></p>
                             </div>
                         </div>
-                        <a class="remove-card-btn" th:href="@{/cart/delete/{id}(id=${product.getId()})}">Удалить</a>
+                        <div>
+                            <a class="remove-card-btn" th:href="@{/cart/delete/{id}(id=${product.getId()})}">Удалить</a>
+                        </div>
                     </div>
                 </div>
                 <div class="order-footer">
@@ -77,12 +79,14 @@
         </div>
     </div>
 
-    <div class="container text-center w-100 footer">
-        <div class="row">
-            <div class="col-4">
-                <h3>SNEZHOK</h3>
+    <div class="my-footer">
+        <div class="container text-center w-100 footer">
+            <div class="row">
+                <div class="col-4">
+                    <h3>SNEZHOK</h3>
+                </div>
+                <div class="col-8">Copyright © интернет-магазин  auction.ru 2019-2022</div>
             </div>
-            <div class="col-8">Организация для экслюзивных вещей</div>
         </div>
     </div>
     <script th:src="@{/scripts/bootstrap.bundle.min.js}"></script>

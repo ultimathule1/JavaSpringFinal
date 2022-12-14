@@ -131,11 +131,13 @@ fieldset input[type="submit"]:hover {
 
 .footer {
    width: 100%;
-   border-top: 1px solid gray;
+   border-top: 1px solid white;
+   color: white;
+   background-color: #212529;
 }
 
 .footer-wrapper {
-   height: 300px;
+   height: 230px;
    width: 100%;
    color: rgb(213, 213, 213);
    background-color: #212529;
@@ -153,11 +155,6 @@ fieldset input[type="submit"]:hover {
    justify-content: space-between;
    font-size: 1.5em;
    padding-bottom: 1.25em;
-}
-
-.contacts a:hover {
-    text-decoration: none;
-    color: darkorange;
 }
 
 .footer__left {
@@ -229,7 +226,16 @@ fieldset input[type="submit"]:hover {
    top: 10px;
 }
 
+.my-footer {
+   width: 100%;
+   background-color: #212529;
+}
+
 .contacts a {
    text-decoration: none;
    color: inherit;
+}
+
+.contacts a:hover {
+   color: darkorange;
 }

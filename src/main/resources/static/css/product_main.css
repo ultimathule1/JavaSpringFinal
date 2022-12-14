@@ -17,12 +17,17 @@
     align-items: center;
 }
 
- .my-nav-link {
-     color: darkorange;
+.my-nav-link {
+    background-color: darkorange;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
      text-decoration: none;
  }
 
 .my-nav-link:hover {
+    background-color: black;
     color:rgb(213, 213, 213);
 }
 
@@ -140,13 +145,38 @@ fieldset input[type="submit"]:hover {
     margin: 0 auto;
 }
 
+.first-section {
+    margin: 85px 0 70px;
+}
+
+.first-section h2 {
+    width: 300px;
+    padding: 13px 0;
+    text-align: center;
+    border-top: 2px dotted rgb(197, 109, 2);
+    border-bottom: 2px dotted rgb(197, 109, 2);
+}
+
+.main-first-section {
+    background-color: #212529;
+}
+
+.about-inform {
+    max-width: 1400px;
+    text-align: center;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
 .footer {
     width: 100%;
-    border-top: 1px solid gray;
+    border-top: 1px solid white;
+    color: white;
+    background-color: #212529;
 }
 
 .footer-wrapper {
-    height: 300px;
+    height: 230px;
     width: 100%;
     color: rgb(213, 213, 213);
     background-color: #212529;
@@ -235,11 +265,16 @@ fieldset input[type="submit"]:hover {
     top: 10px;
 }
 
-.footer__fake-site {
-    color: var(--main-red);
+.my-footer {
+    width: 100%;
+    background-color: #212529;
 }
 
 .contacts a {
     text-decoration: none;
     color: inherit;
+}
+
+.contacts a:hover {
+    color: darkorange;
 }
