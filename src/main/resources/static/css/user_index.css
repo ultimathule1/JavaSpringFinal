@@ -47,6 +47,12 @@ fieldset input[type="submit"]:hover {
     border: 2px solid darkorange;
 }
 
+.cost-place {
+   font-weight: bold;
+   font-size: 17px;
+   color:rgb(125, 125, 125);
+}
+
 .products-search-block {
    display: grid;
    grid-template-columns: repeat(6, 1fr);
@@ -71,8 +77,12 @@ fieldset input[type="submit"]:hover {
 .products a {
    margin-top: 5px;
    text-decoration: none;
-   color: rgb(90, 123, 220);
+   color: rgb(179, 126, 60);
    font-size: 17px;
+}
+
+.products a:hover {
+   color: rgb(255, 141, 3);
 }
 
 .add-to-cart-btn {
@@ -93,7 +103,7 @@ fieldset input[type="submit"]:hover {
 }
 
 .product {
-   border: 1px solid var(--main-green);
+   border: 1px solid lightgray;
    border-radius: 35px;
    padding: 10px 30px 30px;
    transition: 0.4s all ease-out;
@@ -102,20 +112,20 @@ fieldset input[type="submit"]:hover {
 }
 
 .product:hover {
-   box-shadow: 0px 0px 10px 0px #616161;
+   box-shadow: 0px 0px 10px 0px darkorange;
 }
 
-.img-product {
-   position: relative;
+.product-image-block {
+   width: 280px;
+   height: 360px;
    display: flex;
    justify-content: center;
-   margin-top: -15px;
-   overflow: hidden;
-   z-index: 1;
+   align-items: center;
 }
 
 .product img {
-   width: 240px;
+   max-width: 240px;
+   max-height: 320px;
    margin: 0 auto;
 }
 

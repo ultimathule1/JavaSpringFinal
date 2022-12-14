@@ -1,19 +1,30 @@
  .my-nav {
  }
 
- .carousel-item {
+ /* .carousel-item {
     /* height: 65vh;
     min-height: 350px; */
-    background: no-repeat center center scroll;
+    /* background: no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: cover; 
+ }*/
+
+
+.my-nav-item {
+    display: flex;
+    align-items: center;
 }
 
- .my-nav-link:hover {
+ .my-nav-link {
      color: darkorange;
+     text-decoration: none;
  }
+
+.my-nav-link:hover {
+    color:rgb(213, 213, 213);
+}
 
 .front-welcome {
     display: flex;
@@ -34,8 +45,8 @@
     width: 300px;
     padding: 13px 0;
     text-align: center;
-    border-top: 1px solid gray;
-    border-bottom: 1px solid gray;
+    border-top: 2px dotted rgb(197, 109, 2);
+    border-bottom: 2px dotted rgb(197, 109, 2);
 }
 
 fieldset input[type="text"], input[type="search"] {
@@ -52,6 +63,19 @@ fieldset input[type="submit"] {
     padding: 5px 10px;
     background-color: #212529;
     color: white;
+    transition: 0.3s all ease-in-out;
+}
+
+fieldset input[type="submit"]:hover {
+    background-color: darkorange;
+    color: black;
+    border: 2px solid darkorange;
+}
+
+.cost-place {
+    font-weight: bold;
+    font-size: 17px;
+    color:rgb(125, 125, 125);
 }
 
 .products-search-block {
@@ -77,8 +101,12 @@ fieldset input[type="submit"] {
 .products a {
     margin-top: 5px;
     text-decoration: none;
-    color: rgb(90, 123, 220);
-    font-size: 17px;
+    color: rgb(179, 126, 60);
+    font-size: 18px;
+}
+
+.products a:hover {
+    color: rgb(255, 141, 3);
 }
 
 .available-title {
@@ -86,7 +114,7 @@ fieldset input[type="submit"] {
 }
 
 .product {
-    border: 1px solid var(--main-green);
+    border: 1px solid lightgray;
     border-radius: 35px;
     padding: 10px 30px 30px;
     transition: 0.4s all ease-out;
@@ -95,26 +123,22 @@ fieldset input[type="submit"] {
 }
 
 .product:hover {
-    box-shadow: 0px 0px 10px 0px #616161;
+    box-shadow: 0px 0px 10px 0px darkorange;
 }
 
-.img-product {
-    position: relative;
+.product-image-block {
+    width: 280px;
+    height: 360px;
     display: flex;
     justify-content: center;
-    margin-top: -15px;
-    overflow: hidden;
-    z-index: 1;
+    align-items: center;
 }
 
 .product img {
-    width: 240px;
+    max-width: 240px;
+    max-height: 320px;
     margin: 0 auto;
 }
-
-/* .img_product img {
-    
-} */
 
 .footer {
     width: 100%;

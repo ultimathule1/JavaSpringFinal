@@ -81,14 +81,14 @@
                     <br>
                     <br>
                     <p class="category">Категория товаров: </p>
-                    <input type="radio" id="furniture" name="category" value="furniture">
-                    <label for="furniture">Мебель</label>
+                    <input type="radio" id="figurine" name="category" value="figurine">
+                    <label for="figurine">Мебель</label>
                     <br>
-                    <input type="radio" id="appliances" name="category" value="appliances">
-                    <label for="appliances">Бытовая техника</label>
+                    <input type="radio" id="paintings" name="category" value="paintings">
+                    <label for="paintings">Бытовая техника</label>
                     <br>
-                    <input type="radio" id="clothes" name="category" value="clothes">
-                    <label for="clothes">Одежка</label>
+                    <input type="radio" id="interior_elements" name="category" value="interior_elements">
+                    <label for="interior_elements">Одежка</label>
                     <br>
                     <br>
                     <input type="submit" value="Найти">
@@ -98,19 +98,22 @@
         <div class="search-result-and-products">
             <div class="products">
                 <div class="product" th:each="product : ${search_product}">
-                    <div></div>
-                    <img th:src="'/img/' + ${product.imageList[0].getFileName()}" width="300px">
+                    <div class="product-image-block">
+                        <img th:src="'/img/' + ${product.imageList[0].getFileName()}" width="300px">
+                    </div>
                     <a th:href="@{/product/info/{id}(id=${product.getId()})}" th:text="${product.getTitle()}"></a>
-                    <p th:text="'Цена: ' + ${product.getPrice()}"></p>
+                    <p class="cost-place" th:text="'Цена: ' + ${product.getPrice()}"></p>
                     <a class="add-to-cart-btn" th:href="@{/cart/add/{id}(id=${product.getId()})}">Добавить в корзину</a>
                 </div>
             </div>
             <h3 class="available-title">Доступные товары: </h3>
             <div class="products">
                 <div class="product" th:each="product : ${products}">
-                    <img th:src="'/img/' + ${product.imageList[0].getFileName()}">
+                    <div class="product-image-block">
+                        <img th:src="'/img/' + ${product.imageList[0].getFileName()}">
+                    </div>
                     <a th:href="@{/product/info/{id}(id=${product.getId()})}" th:text="${product.getTitle()}" id="title"></a>
-                    <p th:text="'Цена: ' + ${product.getPrice()}"></p>
+                    <p class="cost-place" th:text="'Цена: ' + ${product.getPrice()}"></p>
                     <a class="add-to-cart-btn" th:href="@{/cart/add/{id}(id=${product.getId()})}">Добавить в корзину</a>
                 </div>
             </div>
