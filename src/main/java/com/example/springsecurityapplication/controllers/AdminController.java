@@ -320,21 +320,4 @@ public class AdminController {
         personService.deletePerson(id);
         return "redirect:/admin/person";
     }
-
-    //При нажатии на кнопку будет происходить поиск, сортировка и отображение шаблона
-//    @GetMapping("/person/sorting_and_searching_and_filters")
-//    public String sorting_and_searching_and_filters() {
-//        return "/reguser/SortingAndSearchingAndFilters";
-//    }
-//
-//    @PostMapping("/person/sorting_and_searching_and_filters")
-//    public String sorting_and_searching_and_filters(@RequestParam("SortingAndSearchingAndFiltersOptions")
-//                                                    String sortingAndSearchingAndFiltersOptions, @RequestParam("value") String value, Model model){
-//        switch (sortingAndSearchingAndFiltersOptions) {
-//            case "last_name_start" -> model.addAttribute("person", personService.getPersonLastNameStartingWith(value));
-//            case "email" -> model.addAttribute("person", personService.getPersonEmail(value));
-//            case "phone_number" -> model.addAttribute("person", personService.getPersonPhoneNumber(value));
-//        }
-//        return "reguser/SortingAndSearchingAndFilters";
-//    }
 }
