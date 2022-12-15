@@ -1,6 +1,6 @@
 body {
-    background-image: url("/img/back_for_login.jpg");
-    background-color: #6dcae3;
+    background-image: url("../img/back_for_login.jpg");
+    /* background-color: #6dcae3; */
     margin: 0;
     padding: 0;
     width: 100%;
@@ -25,6 +25,7 @@ a {
     border-radius: 10px;
     font-size: 24px;
     background-color: rgba(255, 255, 255, 0.5);
+    /* background-color: darkorange; */
     text-align: center;
 }
 

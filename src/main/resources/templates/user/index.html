@@ -61,8 +61,10 @@
                 <fieldset>
                     <legend>Поиск</legend>
                     <br>
-                    <label for="search">по наименованию</label>
                     <input type="search" name="search"  th:value="*{value_search}" id="search">
+                    <p style="color: #1a1e21; margin-bottom: 0; padding-bottom: 0">Сортировка,Фильтр</p>
+                    <a href="javascript:Spoiler();" class="link_spoiler" id="linkSpoiler" style="margin-right:10px;"><img width="30px" th:src="@{/img/icon-more.png}"></a>
+                    <div id="contentSpoiler" style="display: none;">
                     <p>Цена, ₽</p>
                     <label for="ot">От</label>
                     <input type="text" name="ot"  th:value="*{value_price_ot}" id="ot">
@@ -89,6 +91,7 @@
                     <br>
                     <input type="radio" id="interior_elements" name="category" value="interior_elements">
                     <label for="interior_elements">Элементы интерьера</label>
+                    </div>
                     <br>
                     <br>
                     <input type="submit" value="Найти">
@@ -143,5 +146,22 @@
     </div>
     <script th:src="@{/scripts/bootstrap.bundle.min.js}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script>
+        function Spoiler() {
+            var ele = document.getElementById("contentSpoiler");
+            // var text = document.getElementById("linkSpoiler");
+            var text = document.querySelector("linkSpoiler");
+            if(ele.style.display == "block") {
+                ele.style.display = "none";
+                // text.innerHTML = "<img width=\"30px\" th:src=\"@{/img/icon-more.png}\">";
+                text.insertAdjacentHTML('afterbegin', `<img width=\\"30px\\" th:src=\\"@{/img/icon-more.png}\\">`);
+            }
+            else {
+                ele.style.display = "block";
+                // text.innerHTML = "Скрыть";
+                text.insertAdjacentHTML('afterbegin', `<p>Скрыть</p>`);
+            }
+        }
+    </script>
 </body>
 </html>

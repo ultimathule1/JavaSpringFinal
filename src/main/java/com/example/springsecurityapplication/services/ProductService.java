@@ -39,8 +39,9 @@ public class ProductService {
 
     // Данный метод позволяет обновить информацию о продукте
     @Transactional
-    public void updateProduct(int id, Product product){
+    public void updateProduct(int id, Product product) {
         product.setId(id);
+        product.setDateTimeOfCreated(getProductId(id).getDateTimeOfCreated());
         productRepository.save(product);
     }
 

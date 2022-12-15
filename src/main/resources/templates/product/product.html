@@ -36,80 +36,14 @@
         </div>
     </nav>
 
-    <div class="front-welcome">
-        <!-- <img class="demo-bg" th:src="'/img/' + slider-1jpg" alt="WHERE IS MY FCKING IMG"> -->
+    <div class="front-welcome" th:style="'background: url(/img/bg-welcome.jpg) repeat center center fixed;'">
         <div class="welcome-text">
             <h1>SNEZHOK</h1>
             <p>Создаем своё, продаем и сотрудничаем с близкими к нам по духу людьми</p>
             <p>проект, созданный в июне 2019 на почве любви к искусству и эстетике.</p>
+<!--            <img th:src="@{/img/bg-welcome.jpg}" alt="Where is my pic">-->
         </div>
     </div>
-
-    <!--slider-->
-<!--    <div-->
-<!--    id="carouselExampleIndicators"-->
-<!--    class="carousel slide"-->
-<!--    data-bs-ride="true">-->
-
-<!--    <div class="carousel-indicators">-->
-
-<!--    <button-->
-<!--            type="button"-->
-<!--            data-bs-target="#carouselExampleIndicators"-->
-<!--            data-bs-slide-to="0"-->
-<!--            class="active"-->
-<!--            aria-current="true"-->
-<!--            aria-label="Slide 1">-->
-<!--    </button>-->
-
-<!--    <button-->
-<!--            type="button"-->
-<!--            data-bs-target="#carouselExampleIndicators"-->
-<!--            data-bs-slide-to="1"-->
-<!--            aria-label="Slide 2">-->
-<!--    </button>-->
-
-<!--    <button-->
-<!--            type="button"-->
-<!--            data-bs-target="#carouselExampleIndicators"-->
-<!--            data-bs-slide-to="2" aria-label="Slide 3">-->
-<!--    </button>-->
-
-<!--    </div>-->
-<!--    <div class="carousel-inner">-->
-<!--    <div class="carousel-item active">-->
-<!--    <img-->
-<!--            id="img_slider"-->
-<!--            src="/img/slider-1.jpg"-->
-<!--            class="d-block w-100"-->
-<!--            alt="1">-->
-<!--    </div>-->
-<!--    <div class="carousel-item">-->
-<!--    <img-->
-<!--            id="img_slider"-->
-<!--            src="/img/slider-1.jpg"-->
-<!--            class="d-block w-100"-->
-<!--            alt="2">-->
-<!--    </div>-->
-<!--    <div class="carousel-item">-->
-<!--    <img-->
-<!--            id="img_slider"-->
-<!--            src="/img/slider-1.jpg"-->
-<!--            class="d-block w-100"-->
-<!--            alt="3">-->
-<!--    </div>-->
-<!--    </div>-->
-
-<!--    <button class="carousel-control-prev" type="button"data-bs-target="#carouselExampleIndicators"data-bs-slide="prev">-->
-<!--    <span class="carousel-control-prev-icon"aria-hidden="true"></span>-->
-<!--    <span class="visually-hidden">Previous</span>-->
-<!--    </button>-->
-<!--    <button class="carousel-control-next" type="button"data-bs-target="#carouselExampleIndicators"data-bs-slide="next">-->
-<!--    <span class="carousel-control-next-icon"aria-hidden="true"></span>-->
-<!--    <span class="visually-hidden">Next</span>-->
-<!--    </button>-->
-<!--    </div>-->
-    <!--slider finish-->
     <div class="catalog-title">
         <h2>Каталог</h2>
     </div>
@@ -119,8 +53,10 @@
                 <fieldset>
                     <legend>Поиск</legend>
                     <br>
-                    <label for="search">по наименованию</label>
                     <input type="search" name="search"  th:value="*{value_search}" id="search">
+                    <p style="color: #1a1e21; margin-bottom: 0; padding-bottom: 0">Сортировка,Фильтр</p>
+                    <a href="javascript:Spoiler();" class="link_spoiler" id="linkSpoiler" style="margin-right:10px;"><img width="30px" th:src="@{/img/icon-more.png}"></a>
+                    <div id="contentSpoiler" style="display: none;">
                     <p style="margin-top: 20px">Цена, ₽</p>
                     <label for="ot">От</label>
                     <input type="text" name="ot"  th:value="*{value_price_ot}" id="ot">
@@ -147,6 +83,7 @@
                     <br>
                     <input type="radio" id="interior_elements" name="category" value="interior_elements">
                     <label for="interior_elements">Элементы интерьера</label>
+                    </div>
                     <br>
                     <br>
                     <input type="submit" value="Найти">
@@ -183,10 +120,10 @@
                 </div>
                 <div class="row justify-content-center align-items-center about-inform">
                     <p>
-                    Антикварный центр PERSPECTIVA Luxury выкупает изделия, представляющие историческую ценность, и выдает крупные займы под залог антиквариата. Мы заинтересованы в различных предметах старины и готовы принять их без предварительной реставрации.
+                    Антикварный центр SNEZHOK выкупает изделия, представляющие историческую ценность, и выдает крупные займы под залог антиквариата. Мы заинтересованы в различных предметах старины и готовы принять их без предварительной реставрации.
                     </p>
                     <p>
-                    Финансовым операциям с антиквариатом предшествует экспертная оценка – ее можно провести в антикварном центре или вызвать оценщика на дом. Имея многолетний опыт работы, мы определяем возраст, материалы изготовления, художественную значимость, уникальность и степень сохранности экземпляров, называя их точную рыночную стоимость. Так как универсальных знатоков, разбирающихся в живописи, монетах царского периода и бронзовых статуэтках, не существует, для оценки редких вещей PERSPECTIVA Luxury привлекает профильных специалистов, что гарантирует грамотный, объективный и максимально оперативный анализ.
+                    Финансовым операциям с антиквариатом предшествует экспертная оценка – ее можно провести в антикварном центре или вызвать оценщика на дом. Имея многолетний опыт работы, мы определяем возраст, материалы изготовления, художественную значимость, уникальность и степень сохранности экземпляров, называя их точную рыночную стоимость. Так как универсальных знатоков, разбирающихся в живописи, монетах царского периода и бронзовых статуэтках, не существует, для оценки редких вещей SNEZHOK привлекает профильных специалистов, что гарантирует грамотный, объективный и максимально оперативный анализ.
                     </p>
                     <p>
                     Результатом профессиональной оценки неизменно становится конкретное коммерческое предложение – сумма, которую антикварный центр предлагает за старинное изделие. Согласиться на выкуп антиквариата или отказаться от него – ваше право. Во втором случае с вами останется подробная информация об объекте и возможность получить качественный сервис на выгодных условиях.
@@ -195,17 +132,20 @@
                 <div class="row">
                     <div class="col-lg-4 text-center pb-5 pb-lg-0">
                         <!-- <img src="img/1horse.png" alt="Лошадь"> -->
-                        <h3>ЖИВОПИСЬ</h3>
+                        <img style="width: 300px;" th:src="@{/img/buyout-painting.jpg}">
+                        <h3 style="margin-bottom: 10px;">ЖИВОПИСЬ</h3>
                         <p>Возможно, вы даже не предполагаете, что полотно, десятилетиями украшающее стену вашего дома или пылящееся на чердаке, обладает какой-то значимостью или является настоящим сокровищем. Эксперты центра проведут быструю и честную оценку произведения искусства, огласив его точную стоимость. Вы получите наличные сразу, без бюрократических проволочек. Это самый простой, надежный и безопасный способ заложить или продать картину и решить финансовые проблемы</p>
                     </div>
                     <div class="col-lg-4 text-center pb-5">
                         <!-- <img src="img/2horse.png" alt="Лошадь"> -->
-                        <h3>СТАТУЭТКИ</h3>
-                        <p>Мы принимаем дорогие и уникальные, редкие и оригинальные, выполненные из различных материалов изделия в любом состоянии, в том числе пострадавшие от времени и требующие реставрации. Решив заложить или продать статуэтку (фигурку, композицию, барельеф и т.д.) в PERSPECTIVA Luxury, рассчитывайте на условия полной конфиденциальности</p>
+                        <img style="width: 220px; margin-bottom: 15px;" th:src="@{/img/buyout-statuettes.jpg}">
+                        <h3 style="margin-bottom: 10px;">СТАТУЭТКИ</h3>
+                        <p>Мы принимаем дорогие и уникальные, редкие и оригинальные, выполненные из различных материалов изделия в любом состоянии, в том числе пострадавшие от времени и требующие реставрации. Решив заложить или продать статуэтку (фигурку, композицию, барельеф и т.д.) в SNEZHOK, рассчитывайте на условия полной конфиденциальности</p>
                     </div>
                     <div class="col-lg-4 text-center pb-5 pb-lg-0">
                         <!-- <img src="img/3horse.png" alt="Лошадь"> -->
-                        <h3>Элементы интерьера</h3>
+                        <img style="width: 228px; margin-bottom: 15px;" th:src="@{/img/flowers-hearts-plant.png}">
+                        <h3 style="margin-bottom: 10px;">Элементы интерьера</h3>
                         <p>Проектирование интерьера осуществляется архитектором во взаимосвязи с экстерьером здания и, как архитектура в целом, следует логике развития историко-культурных концепций, идей и взглядов на окружающий мир, содержания основных художественных направлений, архитектурных стилей, течений и школ (региональных, национальных, академических, персональных), развитию строительных технологий и материалов</p>
                     </div>
                 </div>
@@ -236,5 +176,22 @@
     </div>
     <script th:src="@{/scripts/bootstrap.bundle.min.js}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script>
+        function Spoiler() {
+            var ele = document.getElementById("contentSpoiler");
+            // var text = document.getElementById("linkSpoiler");
+            var text = document.querySelector("linkSpoiler");
+            if(ele.style.display == "block") {
+                ele.style.display = "none";
+                // text.innerHTML = "<img width=\"30px\" th:src=\"@{/img/icon-more.png}\">";
+                text.insertAdjacentHTML('afterbegin', `<img width=\\"30px\\" th:src=\\"@{/img/icon-more.png}\\">`);
+            }
+            else {
+                ele.style.display = "block";
+                // text.innerHTML = "Скрыть";
+                text.insertAdjacentHTML('afterbegin', `<p>Скрыть</p>`);
+            }
+        }
+    </script>
 </body>
 </html>

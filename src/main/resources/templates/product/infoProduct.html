@@ -49,7 +49,7 @@
                 </div>
                 <div class="info-product">
                     <p class="cost-block" th:text="'Цена: ' + ${product.getPrice()}"></p>
-                    <p th:text="'Описание: ' + ${product.getDescription()}"></p>
+                    <p th:text="${product.getDescription()}"></p>
                     <!-- <p th:text="'Склад: ' + ${product.getWarehouse()}"></p> -->
                     <p th:text="'Продавец: ' + ${product.getSeller()}"></p>
                     <p th:text="'Категория: ' + ${product.getCategory().getName()}"></p>

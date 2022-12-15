@@ -75,29 +75,14 @@
             </div>
         </div>
     </div>
-
-    <!-- <h3>Заказы</h3>
-    <form>
-        <input type="button" value="Вернуться в личный кабинет" onclick="history.back()">
-    </form>
-    <br>
-    <div th:each="order : ${orders}">
-        <h3 th:text="'Заказ № ' + ${order.getNumber()}"></h3>
-        <img th:src="'/img/' + ${order.getProduct().imageList[0].getFileName()}" width="300px">
-        <p th:text="'Наименование: ' + ${order.getProduct().getTitle()}"></p>
-        <p th:text="'Количество: ' + ${order.getCount()}"></p>
-        <p th:text="'Цена: ' + ${order.getPrice()}"></p>
-        <p th:text="'Дата заказа: ' + ${#temporals.format(order.getDateTime(), 'dd-MMM-yyyy')}"></p>
-        <p th:text="'Статус: ' + ${order.getStatus()}"></p>
-        <hr>
-    </div> -->
-
-    <div class="container text-center w-100 footer">
-        <div class="row">
-            <div class="col-4">
-                <h3>SNEZHOK</h3>
+    <div class="my-footer">
+        <div class="container text-center w-100 footer">
+            <div class="row">
+                <div class="col-4">
+                    <h3>SNEZHOK</h3>
+                </div>
+                <div class="col-8">Copyright © интернет-магазин auction.ru 2019-2022</div>
             </div>
-            <div class="col-8">Организация для экслюзивных вещей</div>
         </div>
     </div>
 

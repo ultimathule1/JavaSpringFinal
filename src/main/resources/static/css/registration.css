@@ -82,3 +82,10 @@ form input[type="submit"] {
     justify-content: end;
     align-items: center;
 }
+
+
+@media (min-width: 1025px) {
+    .h-custom {
+        height: 100vh !important;
+    }
+}
