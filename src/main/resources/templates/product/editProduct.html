@@ -100,6 +100,14 @@
                             <div style="color: red" th:if="${#fields.hasErrors('seller')}" th:errors="*{seller}"></div>
                         </div>
                     </div>
+<!--                    <div class="imgs-and-del">-->
+<!--                        <div class="img-and-del" th:each="img : ${editProduct.getImageList()}">-->
+<!--                            <div class="img-block">-->
+<!--                                <img th:src="'/img/' + ${img.getFileName()}">-->
+<!--                            </div>-->
+<!--                            <a th:href="@{/admin/product/{id_product}/image/delete/{id_img}(id_product=${editProduct.getId()}, id_img=${editProduct.getImageList().get(3).getId()})}" class="del-to-cart-btn">Удалить</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <input class="submit-btn-my" type="submit" value="Редактировать">
                 </form>
             </div>

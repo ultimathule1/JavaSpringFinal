@@ -5,6 +5,7 @@ import com.example.springsecurityapplication.models.Order;
 import com.example.springsecurityapplication.models.Person;
 import com.example.springsecurityapplication.models.Product;
 import com.example.springsecurityapplication.repositories.CategoryRepository;
+import com.example.springsecurityapplication.repositories.ImageRepository;
 import com.example.springsecurityapplication.repositories.OrderRepository;
 import com.example.springsecurityapplication.repositories.PersonRepository;
 import com.example.springsecurityapplication.security.PersonDetails;
@@ -46,10 +47,11 @@ public class AdminController {
 
     private final OrderService orderService;
     private final PersonRepository personRepository;
+    private final ImageRepository imageRepository;
 
     @Autowired
     public AdminController(ProductValidator productValidator, ProductService productService, CategoryRepository categoryRepository, PersonService personService, OrderRepository orderRepository, OrderService orderService,
-                           PersonRepository personRepository) {
+                           PersonRepository personRepository, ImageRepository imageRepository) {
         this.productValidator = productValidator;
         this.productService = productService;
         this.categoryRepository = categoryRepository;
@@ -57,6 +59,7 @@ public class AdminController {
         this.orderRepository = orderRepository;
         this.orderService = orderService;
         this.personRepository = personRepository;
+        this.imageRepository = imageRepository;
     }
 
     //@PreAuthorize("hasRole('ROLE_ADMIN') and hasRole('')")
@@ -232,6 +235,24 @@ public class AdminController {
         return "redirect:/admin";
     }
 
+    //Удаление фотографии при редактировании товара
+//    @GetMapping("/product/{id_product}/image/delete/{id_img}")
+//    public String deleteImage(@PathVariable("id_product") int id_product, @PathVariable("id_img") int id_img) {
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        PersonDetails personDetails = (PersonDetails) authentication.getPrincipal();
+//        String role = personDetails.getPerson().getRole();
+//
+//        if(role.equals("ROLE_USER")) {
+//            return "redirect:/user/products";
+//        } else {
+//            Product product = productService.getProductId(id_product);
+//            if(product.getImageList().size() > 1) {
+//                imageRepository.deleteImage(id_img);
+//            }
+//            return "redirect:/admin/product/edit/" + id_product;
+//        }
+//    }
+
     //------ORDERS------\\
 
     //Страница со всеми заказами
@@ -266,12 +287,6 @@ public class AdminController {
 
     //------REGISTERED USERS(PERSON)------\\
 
-    //Возвращает страницу с выводом пользователей и кладет объект пользователя в модель
-//    @GetMapping("/person")
-//    public String person(Model model) {
-//        model.addAttribute("person", personService.getAllPerson());
-//        return "reguser/person";
-//    }
 
     //Возвращает страницу с выводом пользователей, а также с возможностью изменения роли
     @GetMapping("/person")
@@ -295,24 +310,6 @@ public class AdminController {
         model.addAttribute("person", personService.getPersonById(id));
         return "reguser/personInfo";
     }
-
-//    //Страница с формой редактирования пользователя, а в модель помещается объект редактируемого пользователя
-//    @GetMapping("/person/edit/{id}")
-//    public String editPerson(@PathVariable("id")int id, Model model){
-//        model.addAttribute("editPerson", personService.getPersonById(id));
-//        return "reguser/editPerson";
-//    }
-//
-//    //Принимает объект с формы и обновляет пользователя
-//    @PostMapping("/person/edit/{id}")
-//    public String editPerson(@ModelAttribute("editPerson") @Valid Person person, BindingResult bindingResult, @PathVariable("id") int id){
-//        if(bindingResult.hasErrors()){
-//            System.out.println("Произошла ошибочка");
-//            return "reguser/editPerson";
-//        }
-//        personService.updatePerson(id, person);
-//        return "redirect:/admin/person";
-//    }
 
     //Удаление пользователя по id
     @GetMapping("/person/delete/{id}")

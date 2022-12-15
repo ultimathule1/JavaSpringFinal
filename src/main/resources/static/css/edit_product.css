@@ -37,8 +37,9 @@ input, textarea, p {
 
 .main {
     max-width: 1400px;
-    width: 1000px;
+    min-width: 1000px;
     min-width: 300px;
+    margin: 120px 0 70px;
     padding: 30px;
     /* margin: 0 auto; */
     background-color: white;
@@ -67,7 +68,7 @@ label {
 }
 
 .name-input {
-    width: 600px;
+    width: 812px;
     min-width: 200px;
 }
 
@@ -109,7 +110,7 @@ label {
 }
 
  .submit-btn-my {
-    margin-top: 20px;
+    margin-top: 40px;
     max-width: 180px;
     padding: 7px 14px;
     font-size: 20px;
@@ -130,10 +131,39 @@ label {
     border-radius: 10px;
     color:white !important;
     background-color: #2b3136;
+    text-decoration: none;
     transition: all 0.3s ease-in-out;
     margin: 0 auto;
  }
  
  .del-to-cart-btn:hover {
+    color:white;
      background-color: rgb(248, 74, 74);
+ }
+
+ .imgs-and-del {
+    margin-top: 30px;
+    width: 100%;
+    max-height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+ }
+
+ .img-and-del {
+    display: flex;
+    flex-direction: column;
+ }
+
+ .img-block {
+    width: 220px;
+    height: 270px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ .img-block img {
+    max-width: 220px;
+    max-height: 270px;
+    margin: 0 auto;
  }
